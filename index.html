@@ -1,0 +1,1468 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Scrub.io - AI-Powered Fraud Detection Engine</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link rel="stylesheet" href="css/output.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="icon" sizes="180x180" href="images/scrublogo4.svg" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body
+    class="bg-gray-50 text-gray-900 transition-all duration-100 dark:bg-[#131313] dark:text-white"
+  >
+    <!-- Header -->
+    <header class="z-[99999] bg-transparent fixed top-[32px] w-full px-4">
+      <div
+        class="container mx-auto backdrop-blur-sm flex px-4 py-4 rounded-full bg-[#D8D8D866] dark:bg-[#33333366] justify-between items-center w-full"
+      >
+        <div class="flex items-center px-4">
+          <svg
+            width="143"
+            height="29"
+            viewBox="0 0 143 29"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            class="fill-[#080602] dark:fill-[#FFFFFF] transition-fill duration-100"
+          >
+            <path
+              d="M29.77 5.55016C29.13 6.20016 28.41 6.78016 27.71 7.38016C26.17 8.71016 24.63 10.0502 23.08 11.3702C21.84 12.4202 21.01 12.3702 19.86 11.1902C18.18 9.48016 16.51 7.76016 14.83 6.05016C13.64 4.83016 13.23 4.83016 11.94 5.99016C9.21 8.46016 6.48 10.9202 3.76 13.3902C3.17 13.9102 2.55 14.3102 1.72 14.1202C0.0599967 13.7402 -0.550003 11.8502 0.579997 10.5502C0.999997 10.0702 1.49 9.65016 1.97 9.22016C4.69 6.75016 7.42 4.29016 10.15 1.82016C10.47 1.53016 10.8 1.24016 11.14 0.960156C12.76 -0.369844 14.37 -0.329844 15.84 1.14016C17.45 2.75016 19.03 4.40016 20.62 6.03016C20.9 6.31016 21.11 6.66016 21.56 6.87016C22.77 6.02016 23.85 4.95016 25.01 3.98016C25.66 3.45016 26.27 2.87016 26.94 2.36016C27.89 1.63016 29.1 1.73016 29.86 2.56016C30.68 3.46016 30.68 4.64016 29.77 5.55016Z"
+            />
+            <path
+              d="M29.44 20.3601C27.92 21.7201 26.36 23.0301 24.81 24.3501C24.21 24.8701 23.62 25.4101 22.99 25.9001C21.69 26.9101 21.01 26.8701 19.87 25.7001C18.25 24.0401 16.66 22.3601 15.05 20.6901C14.89 20.5201 14.72 20.3401 14.55 20.1801C13.76 19.4501 13.16 19.4201 12.35 20.1301C10.56 21.7201 8.77999 23.3301 6.99999 24.9401C5.84999 25.9801 4.70999 27.0501 3.52999 28.0701C2.47999 28.9801 1.28999 28.8701 0.479993 27.8701C-0.190007 27.0301 -0.0900067 25.6601 0.759993 24.8301C1.58999 24.0101 2.44999 23.2401 3.30999 22.4601C5.85999 20.1601 8.41999 17.8701 10.98 15.5701C12.68 14.0501 14.43 14.1101 16.05 15.7701C17.61 17.3701 19.15 18.9901 20.7 20.6001C20.95 20.8601 21.16 21.1601 21.64 21.3501C23.11 20.0801 24.57 18.8301 26.02 17.5801C26.2 17.4301 26.37 17.2601 26.56 17.1101C27.87 16.0201 28.95 16.0301 29.91 17.1301C30.81 18.1601 30.67 19.2701 29.44 20.3601Z"
+            />
+            <path
+              d="M29.58 13.02C28.24 14.22 26.86 15.37 25.49 16.54C24.64 17.27 23.8 18 22.93 18.71C21.85 19.59 20.96 19.55 19.98 18.55C18.23 16.79 16.52 14.99 14.78 13.23C13.65 12.08 13.27 12.05 12.08 13.12C9.57999 15.36 7.09999 17.63 4.60999 19.88C4.18999 20.26 3.77999 20.64 3.32999 20.96C2.41999 21.6 1.41999 21.55 0.679995 20.87C-0.0100053 20.23 -0.190005 18.95 0.339995 18.1C0.539995 17.77 0.829995 17.47 1.11999 17.21C4.38999 14.26 7.68999 11.36 10.92 8.36999C12.5 6.89999 14.56 6.90999 16.09 8.56999C17.82 10.45 19.63 12.26 21.52 14.21C23.31 12.67 25.01 11.22 26.7 9.75999C27.34 9.20999 28.04 8.88999 28.9 9.19999C30.63 9.80999 31 11.77 29.58 13.02Z"
+            />
+            <path
+              d="M111.85 13.6003C111.49 11.0803 110.2 9.18025 107.79 8.24025C105.37 7.31025 103.02 7.48025 100.87 9.08025C100.62 9.27025 100.49 9.61025 100 9.62025V3.26025H96.28C96.07 6.21025 96.16 20.9903 96.38 21.9103H99.93C100.17 21.3703 99.88 20.7803 100.19 20.2303C100.44 20.4303 100.62 20.5903 100.8 20.7303C103.92 23.2103 108.61 22.4603 110.78 19.1303C111.89 17.4303 112.12 15.5503 111.85 13.6003ZM104.05 19.0703C101.72 19.0803 100.05 17.3503 100.05 14.9403C100.05 12.5303 101.76 10.7603 104.03 10.7703C106.38 10.7803 108.05 12.5103 108.05 14.9103C108.04 17.3103 106.36 19.0703 104.05 19.0703Z"
+            />
+            <path
+              d="M48.36 20.4703C47.87 20.8803 47.35 21.2603 46.74 21.4803C44.02 22.4803 41.33 22.4003 38.75 21.0303C37.18 20.1903 36.29 18.8503 36.21 16.9503H40.12C40.12 16.9503 40.25 17.0303 40.27 17.0903C40.98 19.1003 43.34 19.9103 45.13 18.7503C46.29 18.0003 46.39 16.5103 45.34 15.5903C44.88 15.1903 44.32 14.9703 43.75 14.8003C42.68 14.4703 41.6 14.1803 40.54 13.8403C39.93 13.6403 39.33 13.4303 38.76 13.1503C35.24 11.4503 35.77 7.1203 38 5.4803C39.17 4.6303 40.47 4.2303 41.88 4.0803C43.59 3.9003 45.25 4.0503 46.8 4.7903C48.54 5.6003 49.62 6.9303 49.75 8.9903H45.66C45.47 8.2203 45.06 7.5703 44.26 7.2403C43.46 6.9203 42.64 6.8403 41.8 7.0603C40.99 7.2703 40.45 7.7003 40.29 8.5503C40.11 9.4603 40.47 10.1103 41.22 10.5803C41.83 10.9603 42.53 11.1703 43.21 11.3903C44.2 11.7003 45.2 11.9803 46.18 12.3003C46.6 12.4403 47 12.6103 47.4 12.8003C51 14.4803 50.48 18.7203 48.36 20.4703Z"
+            />
+            <path
+              d="M136.62 7.99998C135.36 7.65998 134.08 7.61998 132.82 7.80998C128.8 8.38998 126.39 11.4 126.46 14.97C126.47 18.38 128.5 21.03 131.78 21.89C133.32 22.3 134.86 22.29 136.4 21.93C139.76 21.15 142.02 18.36 142.06 14.98C142.09 11.6 139.98 8.90998 136.62 7.99998ZM134.13 19.08C131.79 19.09 130.33 17.51 130.32 14.97C130.31 12.44 131.88 10.73 134.21 10.75C136.52 10.76 138.13 12.49 138.14 14.97C138.14 17.4 136.51 19.08 134.13 19.08Z"
+            />
+            <path
+              d="M93.13 7.98005V21.9301H89.55C89.23 21.4901 89.6 20.9401 89.19 20.4901C88.06 21.4301 86.78 22.0001 85.3 22.1201C82.3 22.3501 79.85 20.8201 79.07 18.1501C78.92 17.6601 78.83 17.1301 78.83 16.6201C78.8 13.7801 78.82 10.9501 78.82 8.03005H82.59V10.6701C82.59 12.3901 82.53 14.1101 82.59 15.8301C82.72 19.0501 85.43 19.5401 87.44 18.8601C88.47 18.5201 89.06 17.7301 89.26 16.6701C89.37 16.1201 89.4 15.5601 89.4 15.0001C89.39 13.0801 89.39 11.1601 89.4 9.24005C89.4 8.85005 89.31 8.44005 89.53 7.99005C90.69 7.90005 91.87 7.94005 93.12 7.99005L93.13 7.98005Z"
+            />
+            <path
+              d="M62.34 17.2604H66.17C66.13 19.7904 63.15 22.0304 59.65 22.1904C55.46 22.3804 52.18 19.7504 51.82 15.8904C51.42 11.6804 53.84 8.38038 57.73 7.81038C62.04 7.17038 65.52 9.08038 66.29 12.6004H62.33C61.52 10.9704 60.14 10.4804 58.44 10.7704C57.49 10.9304 56.72 11.4604 56.28 12.3304C55.43 14.0404 55.41 15.7804 56.27 17.5104C57.38 19.7304 61.19 19.6304 62.08 17.6804C62.15 17.5404 62.24 17.4204 62.34 17.2604Z"
+            />
+            <path
+              d="M76.8 11.2903C76.35 11.5303 75.9 11.4003 75.48 11.4303C73.26 11.5503 72.26 12.5003 72.21 14.7103C72.17 17.0603 72.2 19.4203 72.2 21.9203H68.44V8.01027H72.09C72.32 8.60027 72.05 9.17027 72.29 9.71027C74.52 7.98027 74.88 7.82027 76.75 7.78027C76.9 8.94027 76.8 10.1103 76.8 11.2903Z"
+            />
+            <path d="M124.45 7.99023H120.76V21.8802H124.45V7.99023Z" />
+            <path
+              d="M118.18 20.0701C118.17 21.2801 117.24 22.1201 115.89 22.1301C114.52 22.1301 113.48 21.1901 113.52 20.0001C113.56 18.8601 114.58 18.0101 115.91 18.0201C117.27 18.0201 118.19 18.8501 118.18 20.0701Z"
+            />
+            <path
+              d="M124.96 4.24008C124.91 5.41008 123.94 6.20008 122.57 6.19008C121.22 6.18008 120.27 5.32008 120.28 4.13008C120.28 2.98008 121.31 2.08008 122.62 2.08008C123.93 2.08008 125.01 3.02008 124.96 4.24008Z"
+            />
+          </svg>
+        </div>
+        <div class="flex items-center space-x-4">
+          <button
+            id="theme-toggle"
+            class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700"
+          >
+            <svg
+              width="24"
+              height="25"
+              viewBox="0 0 24 25"
+              fill="none"
+              class="h-5 w-5 hidden dark:block cursor-pointer"
+              stroke="currentColor"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M12 19C15.5899 19 18.5 16.0899 18.5 12.5C18.5 8.91015 15.5899 6 12 6C8.41015 6 5.5 8.91015 5.5 12.5C5.5 16.0899 8.41015 19 12 19Z"
+                stroke="white"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M19.14 19.64L19.01 19.51M19.01 5.49L19.14 5.36L19.01 5.49ZM4.86 19.64L4.99 19.51L4.86 19.64ZM12 2.58V2.5V2.58ZM12 22.5V22.42V22.5ZM2.08 12.5H2H2.08ZM22 12.5H21.92H22ZM4.99 5.49L4.86 5.36L4.99 5.49Z"
+                stroke="white"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5 block dark:hidden"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
+              />
+            </svg>
+          </button>
+          <button
+            id="join"
+            class="bg-yellow-400 hover:bg-yellow-500 text-sm md:text-base text-black font-medium py-2 px-4 rounded-full transition duration-100 waitlist"
+          >
+            Join Our Waitlist
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="px-4 pt-12 md:pt-20 bg-[#F3F3F5] dark:bg-[#181818]">
+      <div class="container mx-auto mt-24 relative">
+        <div class="text-center mb-8">
+          <div
+            class="inline-flex items-center bg-[#E9E9E9] dark:bg-gray-800 px-1 py-1 font-medium rounded-full mb-6"
+          >
+            <div class="rounded-full bg-white dark:bg-black px-1 py-1 mr-2">
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                class="stroke-black dark:stroke-white transition duration-100"
+              >
+                <path
+                  d="M20.91 11.12C20.91 16.01 17.36 20.59 12.51 21.93C12.18 22.02 11.82 22.02 11.49 21.93C6.63996 20.59 3.08997 16.01 3.08997 11.12V6.72997C3.08997 5.90997 3.70998 4.97998 4.47998 4.66998L10.05 2.39001C11.3 1.88001 12.71 1.88001 13.96 2.39001L19.53 4.66998C20.29 4.97998 20.92 5.90997 20.92 6.72997L20.91 11.12Z"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M12 12.5C13.1046 12.5 14 11.6046 14 10.5C14 9.39543 13.1046 8.5 12 8.5C10.8954 8.5 10 9.39543 10 10.5C10 11.6046 10.8954 12.5 12 12.5Z"
+                  stroke-width="1.5"
+                  stroke-miterlimit="10"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M12 12.5V15.5"
+                  stroke-width="1.5"
+                  stroke-miterlimit="10"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </div>
+
+            <span class="mr-3">Start Protecting Your Business</span>
+          </div>
+          <h1 class="text-4xl md:text-6xl font-bold mb-4">
+            AI-Powered Fraud Detection Engine.
+          </h1>
+          <h2 class="text-3xl md:text-6xl font-bold mb-6">
+            <span class="px-2 relative"
+              >Instant.
+
+              <svg
+                width="218"
+                height="72"
+                viewBox="0 0 218 72"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                class="inline absolute left-0 top-[-13px] md:top-0 squig"
+              >
+                <path
+                  id="squig"
+                  d="M66.2184 23.2627C79.0849 17.1472 98.875 14.948 114.98 13.2996C143.315 10.3993 172.629 12.5029 198.104 20.1041C212.605 24.4307 219.154 32.7621 212.228 41.2736C202.058 53.7709 174.232 60.315 152.124 64.2744C137.463 66.9001 122.42 68.109 107.062 68.6427C86.7286 69.3493 66.1643 69.1072 46.1023 67.013C32.2935 65.5715 6.09883 63.4783 3.27161 53.6896C2.0662 49.5161 5.08616 45.0998 8.13249 41.3744C15.0426 32.9239 25.3938 25.3622 38.5817 19.5664C53.9651 12.8058 72.1402 7.68429 91.2565 5.0502C106.746 2.91588 121.953 3.00046 137.756 3.00046"
+                  stroke="#F9D02C"
+                  stroke-width="5.37259"
+                  stroke-linecap="round"
+                />
+              </svg>
+            </span>
+            <span class="px-2 relative"
+              >Accurate.
+              <svg
+                width="237"
+                height="10"
+                viewBox="0 0 237 10"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                class="inline absolute left-0 bottom-0 squig"
+              >
+                <path
+                  d="M4.00001 5.30307C32.4159 6.10025 61.0064 4.98472 89.2831 4.70711C137.163 4.23703 185.179 4.02213 233.183 4.42374"
+                  stroke="#F9D02C"
+                  stroke-width="7"
+                  stroke-linecap="round"
+                />
+              </svg>
+            </span>
+            <span class="px-2 relative"
+              >Reliable.
+              <img
+                src="images/squig5.svg"
+                alt="squig"
+                class="inline absolute top-0 right-[-7px] md:-right-[28px] md:-right-[12px] w-5 h-5 md:w-12 md:h-12"
+              />
+            </span>
+          </h2>
+          <p
+            class="text-base font-normal text-gray-600 dark:text-gray-300 max-w-xl mx-auto mb-12"
+          >
+            Stop fraud before it happens with advanced machine learning and
+            real-time risk scoring. Protect your business from account
+            takeovers, payment fraud, and identity theft—effortlessly.
+          </p>
+          <div
+            class="flex flex-col sm:flex-row justify-center gap-4 max-w-50 mx-auto md:max-w-full"
+          >
+            <button
+              class="bg-[#F9D02C] hover:bg-yellow-500 text-black font-medium py-3 px-6 rounded-full transition duration-100 waitlist"
+            >
+              Join Our Waitlist
+            </button>
+            <button
+              class="bg-[#E9E9E9] dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-900 dark:text-white font-medium py-3 px-6 rounded-full transition duration-100"
+            >
+              Request a demo
+            </button>
+          </div>
+        </div>
+        <div
+          class="border border-[#E9E9EB] bg-white dark:bg-[#0D0D0D] dark:border-[#202023] w-[150px] md:w-[300px] rounded-3xl px-3 py-4 md:px-4 md:py-7 absolute left-[100px] z-[4] mt-[1px] md:-mt-[4px] shadow-lg"
+        >
+          <p class="text-xs md:text-sm text-gray-500 dark:text-gray-400 mb-2">
+            Amount lost to fraud (2022)
+          </p>
+          <p class="text-lg md:text-3xl font-bold text-black dark:text-white">
+            $41 billion
+          </p>
+        </div>
+        <div class="mt-24 relative max-w-[930px] md:mx-auto w-full">
+          <img
+            src="/images/dash.svg?height=500&width=1000"
+            alt="Scrub.io Dashboard"
+            class="w-full"
+          />
+
+          <div
+            class="bg-white border border-[#E9E9EB] dark:bg-[#0D0D0D] dark:border-[#202023] bg-white p-1 md:p-4 rounded-full shadow-lg absolute left-[30%] bottom-[10px] md:left-0 md:bottom-[30px] transform -translate-x-1/2 flex items-center"
+          >
+            <div class="bg-[#F9D02C] rounded-full p-1 mr-2">
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 18 18"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M9.59292 3.43566C9.33831 3.16969 8.9163 3.16049 8.65034 3.4151L4.79774 7.10318C4.53177 7.35778 4.52256 7.77979 4.77717 8.04576C5.03178 8.31173 5.45379 8.32093 5.71976 8.06633L8.40973 5.49122L8.21716 14.3175C8.20913 14.6856 8.50103 14.9906 8.86913 14.9986C9.23723 15.0066 9.54215 14.7147 9.55018 14.3466L9.74275 5.52031L12.3179 8.21028C12.5725 8.47625 12.9945 8.48545 13.2604 8.23084C13.5264 7.97624 13.5356 7.55423 13.281 7.28826L9.59292 3.43566Z"
+                  fill="#171717"
+                />
+              </svg>
+            </div>
+            <span class="text-xs md:text-base"
+              >Transactions analyzed: <strong> &lt; 200ms</strong></span
+            >
+          </div>
+          <div
+            class="border border-[#E9E9EB] bg-white w-[150px] md:w-[200px] dark:bg-[#0D0D0D] dark:border-[#202023] rounded-3xl px-3 md:px-4 py-4 md:py-7 bottom-[30px] absolute -right-[15px] md:right-[-100px] z-[4] -mt-10 shadow-lg"
+          >
+            <p class="text-xs md:text-sm text-gray-500 dark:text-gray-400 mb-2">
+              Fewer Chargebacks
+            </p>
+            <p class="text-lg md:text-3xl font-bold text-black dark:text-white">
+              20-30%
+            </p>
+          </div>
+        </div>
+        <div
+          class="absolute left-0 bottom-[200px] md:bottom-0 md:left-[-70px] w-20 h-20 md:w-58 md:h-58"
+        >
+          <img
+            src="images/squig.svg"
+            alt="Yellow curve"
+            class="w-full h-full"
+          />
+        </div>
+        <div
+          class="absolute bottom-[200px] right-0 md:bottom-[20px] md:right-[-50px] w-20 h-20 md:w-58 md:h-58"
+        >
+          <img
+            src="images/squig2.svg"
+            alt="Yellow arrow"
+            class="w-full h-full"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- Integration Section -->
+    <section class="container mx-auto px-4 py-20">
+      <h2 class="text-2xl font-bold text-center mb-12 text-blaxk">
+        Seamlessly integrate
+        <span class="dark:text-gray-400 font-medium"
+          >with top financial platforms</span
+        >
+      </h2>
+      <div class="items-center justify-items-center">
+        <img src="images/companies.svg" alt="Stripe" class="h-full w-full" />
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="container mx-auto px-4 pt-20 md:pb-20 pb-5">
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div>
+          <h2
+            class="text-5xl text-center md:text-left font-bold mb-8 max-w-md md:leading-[58px]"
+          >
+            Fraud Prevention That Adapts and Evolves
+          </h2>
+
+          <div class="space-y-8">
+            <div class="flex">
+              <div
+                class="flex-shrink-0 bg-gray-100 w-14 h-14 items-center justify-center flex dark:bg-[#232323] rounded-lg mr-4"
+              >
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="stroke-[#292D32] dark:stroke-white"
+                >
+                  <path
+                    d="M6.89 9C7.87 9.49 8.71 10.23 9.32 11.15C9.67 11.67 9.67 12.34 9.32 12.86C8.71 13.77 7.87 14.51 6.89 15"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M13 15H17"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M9 22H15C20 22 22 20 22 15V9C22 4 20 2 15 2H9C4 2 2 4 2 9V15C2 20 4 22 9 22Z"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </div>
+              <div>
+                <h3 class="text-2xl font-semibold mb-2">
+                  AI-Powered Risk Detection
+                </h3>
+                <p
+                  class="text-[#595959] font-normal dark:text-gray-400 text-base"
+                >
+                  Continuously analyzes transaction and user behavior to
+                  identify suspicious patterns.
+                </p>
+              </div>
+            </div>
+
+            <div class="flex">
+              <div
+                class="flex-shrink-0 bg-gray-100 w-14 h-14 items-center justify-center flex dark:bg-[#232323] rounded-lg mr-4"
+              >
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="stroke-[#292D32] dark:stroke-white"
+                >
+                  <path
+                    d="M22 12C22 17.52 17.52 22 12 22C6.48 22 2 17.52 2 12C2 6.48 6.48 2 12 2C17.52 2 22 6.48 22 12Z"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M15.71 15.18L12.61 13.33C12.07 13.01 11.63 12.24 11.63 11.61V7.51001"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </div>
+              <div>
+                <h3 class="text-2xl font-semibold mb-2">
+                  Real-Time Fraud Prevention
+                </h3>
+                <p
+                  class="text-[#595959] font-normal dark:text-gray-400 text-base"
+                >
+                  Instantly flags suspicious transactions and provides immediate
+                  alerts.
+                </p>
+              </div>
+            </div>
+
+            <div class="flex">
+              <div
+                class="flex-shrink-0 bg-gray-100 w-14 h-14 items-center justify-center flex dark:bg-[#232323] rounded-lg mr-4"
+              >
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="stroke-[#292D32] dark:stroke-white"
+                >
+                  <path
+                    d="M20.91 11.12C20.91 16.01 17.36 20.59 12.51 21.93C12.18 22.02 11.82 22.02 11.49 21.93C6.63999 20.59 3.09 16.01 3.09 11.12V6.73003C3.09 5.91003 3.71001 4.98004 4.48001 4.67004L10.05 2.39007C11.3 1.88007 12.71 1.88007 13.96 2.39007L19.53 4.67004C20.29 4.98004 20.92 5.91003 20.92 6.73003L20.91 11.12Z"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M12 12.5C13.1046 12.5 14 11.6046 14 10.5C14 9.39543 13.1046 8.5 12 8.5C10.8954 8.5 10 9.39543 10 10.5C10 11.6046 10.8954 12.5 12 12.5Z"
+                    stroke-width="1.5"
+                    stroke-miterlimit="10"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M12 12.5V15.5"
+                    stroke="#292D32"
+                    stroke-width="1.5"
+                    stroke-miterlimit="10"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </div>
+              <div>
+                <h3 class="text-2xl font-semibold mb-2">
+                  Customizable Security Rules
+                </h3>
+                <p
+                  class="text-[#595959] font-normal dark:text-gray-400 text-base"
+                >
+                  Define fraud thresholds and suspicious behavior—working with
+                  our expert system.
+                </p>
+              </div>
+            </div>
+
+            <div class="flex">
+              <div
+                class="flex-shrink-0 bg-gray-100 w-14 h-14 items-center justify-center flex dark:bg-[#232323] rounded-lg mr-4"
+              >
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="stroke-[#292D32] dark:stroke-white"
+                >
+                  <path
+                    d="M12 14.88C11.09 14.88 10.35 14.14 10.35 13.23V10.76C10.35 9.85001 11.09 9.10999 12 9.10999C12.91 9.10999 13.65 9.85001 13.65 10.76V13.23C13.65 14.14 12.91 14.88 12 14.88Z"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                  />
+                  <path
+                    d="M16.98 13.4699C16.78 16.0499 14.62 18.0699 12 18.0699C9.24 18.0699 7 15.8299 7 13.0699V10.9299C7 8.16993 9.24 5.92993 12 5.92993C14.59 5.92993 16.72 7.89992 16.97 10.4199"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                  />
+                  <path
+                    d="M15 2H17C20 2 22 4 22 7V9"
+                    stroke-width="1.5"
+                    stroke-miterlimit="10"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M2 9V7C2 4 4 2 7 2H9"
+                    stroke-width="1.5"
+                    stroke-miterlimit="10"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M15 22H17C20 22 22 20 22 17V15"
+                    stroke-width="1.5"
+                    stroke-miterlimit="10"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M2 15V17C2 20 4 22 7 22H9"
+                    stroke-width="1.5"
+                    stroke-miterlimit="10"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </div>
+              <div>
+                <h3 class="text-2xl font-semibold mb-2">
+                  Device Fingerprinting & Behavioral Analysis
+                </h3>
+                <p
+                  class="text-[#595959] font-normal dark:text-gray-400 text-base"
+                >
+                  Track devices, IP addresses, and user behavior to identify
+                  fraud patterns.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <button
+            class="mt-8 bg-[#F9D02C] hover:bg-yellow-500 text-black font-medium py-3 px-6 rounded-full transition duration-100 waitlist"
+          >
+            Join Our Waitlist
+          </button>
+        </div>
+
+        <div class="relative w-full p-7 md:p-14">
+          <img
+            src="images/man.png"
+            alt="Fraud Prevention Expert"
+            class="w-full md:w-[90%] rounded-lg"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- Transaction Examples Section -->
+    <section class="container mx-auto px-4 pt-20 md:pb-20 pb-5">
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div class="max-w-xl mx-auto w-full">
+          <div
+            class="space-y-4 bg-[#F0F0F2] dark:bg-[#1B1B1B] px-4 md:px-12 w-full py-9 rounded-2xl"
+          >
+            <div
+              class="bg-[#F9D02C] dark:bg-[#F9D02C] p-4 rounded-2xl max-w-lg py-4 px-4"
+            >
+              <div class="flex justify-between items-center mb-2">
+                <div class="flex items-center">
+                  <div class="rounded-full p-2 bg-[#FFEDA4] mr-3">
+                    <svg
+                      width="25"
+                      height="25"
+                      viewBox="0 0 25 25"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M6.29066 18.5L18.2907 6.5"
+                        stroke="#292D32"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M18.2907 18.5L6.29066 6.5"
+                        stroke="#292D32"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </div>
+                  <div>
+                    <span
+                      class="font-semibold text-black text-[16px] md:text-[20px] dark:text-red-400"
+                      >Fraudulent Transaction</span
+                    >
+                    <p
+                      class="text-[12px] md:text-sm text-gray-600 dark:text-[#383838]"
+                    >
+                      Unusual Location
+                    </p>
+                  </div>
+                </div>
+                <span class="font-bold dark:text-black text-white"
+                  >$2500.00</span
+                >
+              </div>
+            </div>
+
+            <div
+              class="bg-[#F9D02C] dark:bg-[#F9D02C] p-4 rounded-2xl max-w-lg py-4 px-4"
+            >
+              <div class="flex justify-between items-center mb-2">
+                <div class="flex items-center">
+                  <div class="rounded-full p-2 bg-[#FFEDA4] mr-3">
+                    <svg
+                      width="25"
+                      height="25"
+                      viewBox="0 0 25 25"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M6.29066 12.5L10.286 16.5L18.2907 8.5"
+                        stroke="#292D32"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </div>
+                  <div>
+                    <span
+                      class="font-semibold text-black text-[16px] md:text-[20px] dark:text-green-400"
+                      >Normal Transaction</span
+                    >
+                    <p
+                      class="text-[12px] md:text-sm text-gray-600 dark:text-[#383838]"
+                    >
+                      Regular Pattern
+                    </p>
+                  </div>
+                </div>
+                <span class="font-bold dark:text-black text-white"
+                  >$150.00</span
+                >
+              </div>
+            </div>
+
+            <div
+              class="bg-[#F9D02C] dark:bg-[#F9D02C] p-4 rounded-2xl max-w-lg py-4 px-4"
+            >
+              <div class="flex justify-between items-center mb-2">
+                <div class="flex items-center">
+                  <div class="rounded-full p-2 bg-[#FFEDA4] mr-3">
+                    <svg
+                      width="25"
+                      height="25"
+                      viewBox="0 0 25 25"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M6.29066 12.5L10.286 16.5L18.2907 8.5"
+                        stroke="#292D32"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </div>
+                  <div>
+                    <span
+                      class="font-semibold text-black text-[16px] md:text-[20px] dark:text-green-400"
+                      >Normal Transaction</span
+                    >
+                    <p
+                      class="text-[12px] md:text-sm text-gray-600 dark:text-[#383838]"
+                    >
+                      Known Location
+                    </p>
+                  </div>
+                </div>
+                <span class="font-bold dark:text-black text-white">$25.00</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="max-w-xl mx-auto text-center md:text-left">
+          <h2 class="text-5xl font-bold mb-4 leading-[58px]">
+            Advanced AI Fraud Detection. Smarter. Faster. More Secure.
+          </h2>
+          <p class="text-[#383838] dark:text-gray-400 mb-6 text-base">
+            We use sophisticated AI models combined with cutting-edge fraud
+            detection techniques to provide comprehensive protection for every
+            transaction, everywhere.
+          </p>
+
+          <div class="space-y-4">
+            <div class="flex items-center text-left">
+              <div class="rounded-full bg-[#F0F0F2] p-1 mr-3">
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 16 16"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M1.20697 6.48494C1.3945 6.29747 1.64881 6.19215 1.91397 6.19215C2.17914 6.19215 2.43344 6.29747 2.62097 6.48494L6.15697 10.0209L13.227 2.94994C13.3198 2.85703 13.4301 2.78332 13.5514 2.73301C13.6727 2.6827 13.8028 2.65678 13.9341 2.65674C14.0655 2.65669 14.1955 2.68252 14.3169 2.73274C14.4383 2.78296 14.5486 2.8566 14.6415 2.94944C14.7344 3.04229 14.8081 3.15252 14.8584 3.27385C14.9087 3.39519 14.9346 3.52524 14.9347 3.65659C14.9347 3.78794 14.9089 3.91801 14.8587 4.03938C14.8085 4.16074 14.7348 4.27103 14.642 4.36394L6.15697 12.8489L1.20697 7.89894C1.0195 7.71141 0.914185 7.45711 0.914185 7.19194C0.914185 6.92678 1.0195 6.67247 1.20697 6.48494Z"
+                    fill="#171717"
+                  />
+                </svg>
+              </div>
+
+              <p class="text-lg leading-[19px]">
+                Blocklist & Whitelist Control - Manage high-risk and trusted
+                entities
+              </p>
+            </div>
+
+            <div class="flex items-center text-left">
+              <div class="rounded-full bg-[#F0F0F2] p-1 mr-3">
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 16 16"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M1.20697 6.48494C1.3945 6.29747 1.64881 6.19215 1.91397 6.19215C2.17914 6.19215 2.43344 6.29747 2.62097 6.48494L6.15697 10.0209L13.227 2.94994C13.3198 2.85703 13.4301 2.78332 13.5514 2.73301C13.6727 2.6827 13.8028 2.65678 13.9341 2.65674C14.0655 2.65669 14.1955 2.68252 14.3169 2.73274C14.4383 2.78296 14.5486 2.8566 14.6415 2.94944C14.7344 3.04229 14.8081 3.15252 14.8584 3.27385C14.9087 3.39519 14.9346 3.52524 14.9347 3.65659C14.9347 3.78794 14.9089 3.91801 14.8587 4.03938C14.8085 4.16074 14.7348 4.27103 14.642 4.36394L6.15697 12.8489L1.20697 7.89894C1.0195 7.71141 0.914185 7.45711 0.914185 7.19194C0.914185 6.92678 1.0195 6.67247 1.20697 6.48494Z"
+                    fill="#171717"
+                  />
+                </svg>
+              </div>
+
+              <p class="text-lg leading-[19px]">
+                Fraud Analytics & Reporting - Gain real-time insights into fraud
+                patterns
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="container mx-auto px-4 pt-10 md:pt-28 py-28">
+      <div class="flex md:flex-row flex-col gap-12 items-start">
+        <div class="basis-[32%]">
+          <p
+            class="font-light text-base text-center md:text-left mb-5 text-[#595959]"
+          >
+            FAQs
+          </p>
+          <h2
+            class="text-5xl font-bold text-center md:text-left mb-4 leading-[58px] max-w-xl"
+          >
+            Frequently Asked Questions
+          </h2>
+        </div>
+
+        <div class="max-w-3xl mx-auto basis-[68%]">
+          <div class="space-y-6">
+            <div class="border-b border-gray-200 dark:border-gray-700 pb-6">
+              <button
+                class="faq-toggle flex justify-between items-center w-full text-left"
+                data-target="faq1"
+              >
+                <h3 class="text-xl font-semibold">What is Scrub.io?</h3>
+                <svg
+                  class="w-5 h-5 transform transition-transform faq-icon"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 9l-7 7-7-7"
+                  ></path>
+                </svg>
+              </button>
+              <div id="faq1" class="faq-content mt-4 hidden">
+                <p class="text-gray-600 dark:text-gray-400">
+                  Scrub.io is an AI-powered fraud prevention platform that helps
+                  businesses detect and prevent fraud through machine learning,
+                  risk scoring, and behavioral analysis. It protects banks,
+                  fintech, and e-commerce platforms from financial fraud.
+                </p>
+              </div>
+            </div>
+
+            <div class="border-b border-gray-200 dark:border-gray-700 pb-6">
+              <button
+                class="faq-toggle flex justify-between items-center w-full text-left"
+                data-target="faq2"
+              >
+                <h3 class="text-xl font-semibold">
+                  How does Scrub.io detect fraud?
+                </h3>
+                <svg
+                  class="w-5 h-5 transform transition-transform faq-icon"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 9l-7 7-7-7"
+                  ></path>
+                </svg>
+              </button>
+              <div id="faq2" class="faq-content mt-4 hidden">
+                <p class="text-gray-600 dark:text-gray-400">
+                  Scrub.io uses advanced AI algorithms to analyze transaction
+                  patterns, user behavior, device information, and other signals
+                  to identify potentially fraudulent activities in real-time.
+                </p>
+              </div>
+            </div>
+
+            <div class="border-b border-gray-200 dark:border-gray-700 pb-6">
+              <button
+                class="faq-toggle flex justify-between items-center w-full text-left"
+                data-target="faq3"
+              >
+                <h3 class="text-xl font-semibold">Who can use Scrub.io?</h3>
+                <svg
+                  class="w-5 h-5 transform transition-transform faq-icon"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 9l-7 7-7-7"
+                  ></path>
+                </svg>
+              </button>
+              <div id="faq3" class="faq-content mt-4 hidden">
+                <p class="text-gray-600 dark:text-gray-400">
+                  Scrub.io is designed for businesses of all sizes that process
+                  financial transactions, including e-commerce stores, fintech
+                  companies, banks, and payment processors.
+                </p>
+              </div>
+            </div>
+
+            <div class="border-b border-gray-200 dark:border-gray-700 pb-6">
+              <button
+                class="faq-toggle flex justify-between items-center w-full text-left"
+                data-target="faq4"
+              >
+                <h3 class="text-xl font-semibold">
+                  Can I customize fraud detection rules?
+                </h3>
+                <svg
+                  class="w-5 h-5 transform transition-transform faq-icon"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 9l-7 7-7-7"
+                  ></path>
+                </svg>
+              </button>
+              <div id="faq4" class="faq-content mt-4 hidden">
+                <p class="text-gray-600 dark:text-gray-400">
+                  Yes, Scrub.io allows you to customize detection rules and
+                  thresholds to match your specific business needs and risk
+                  tolerance.
+                </p>
+              </div>
+            </div>
+
+            <div class="border-b border-gray-200 dark:border-gray-700 pb-6">
+              <button
+                class="faq-toggle flex justify-between items-center w-full text-left"
+                data-target="faq5"
+              >
+                <h3 class="text-xl font-semibold">
+                  What happens if a transaction is flagged as suspicious?
+                </h3>
+                <svg
+                  class="w-5 h-5 transform transition-transform faq-icon"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 9l-7 7-7-7"
+                  ></path>
+                </svg>
+              </button>
+              <div id="faq5" class="faq-content mt-4 hidden">
+                <p class="text-gray-600 dark:text-gray-400">
+                  When a transaction is flagged, Scrub.io immediately alerts you
+                  through your preferred notification channel. You can then
+                  review the transaction details and decide whether to approve,
+                  deny, or request additional verification.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA Section -->
+      <div
+        class="container bg-black rounded-[40px] py-30 px-20 text-white mx-auto text-center w-full mt-32 z-[4] relative"
+      >
+        <h2 class="text-5xl font-bold mb-6 leading-[58px]">
+          <span class="relative">
+            Eliminate
+            <img
+              src="images/squig3.svg"
+              alt="squig"
+              class="inline absolute left-0 top-0"
+            />
+          </span>
+          Fraud One
+          <br />
+          <span class="relative">
+            Transaction
+            <img
+              src="images/squig4.svg"
+              alt="squig"
+              class="inline absolute left-0 bottom-0"
+            />
+          </span>
+          At A
+          <span class="relative">
+            Time
+            <img
+              src="images/squig5.svg"
+              alt="squig"
+              class="inline absolute w-5 h-5 md:w-12 md:h-12 top-0"
+            />
+          </span>
+        </h2>
+        <p class="mb-8 max-w-2xl text-white/80 mx-auto">
+          Scrub.io empowers businesses with cutting-edge fraud detection.
+          Protect your revenue, secure your transactions, and stay ahead of
+          cybercriminals.
+        </p>
+        <button
+          class="bg-[#F9D02C] hover:bg-yellow-500 text-black font-medium py-3 px-6 rounded-full transition duration-100 waitlist"
+        >
+          Join Our Waitlist
+        </button>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer
+      class="bg-[#E8E8E8] dark:bg-[#242424] pb-24 -mt-[350px] pt-[300px] md:pt-[450px]"
+    >
+      <div class="container mx-auto px-4">
+        <div class="flex flex-col md:flex-row gap-8">
+          <div class="basis-[55%] order-2 md:order-1">
+            <svg
+              width="143"
+              height="29"
+              viewBox="0 0 143 29"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              class="fill-[#080602] dark:fill-[#FFFFFF] transition-fill duration-100 mb-4"
+            >
+              <path
+                d="M29.77 5.55016C29.13 6.20016 28.41 6.78016 27.71 7.38016C26.17 8.71016 24.63 10.0502 23.08 11.3702C21.84 12.4202 21.01 12.3702 19.86 11.1902C18.18 9.48016 16.51 7.76016 14.83 6.05016C13.64 4.83016 13.23 4.83016 11.94 5.99016C9.21 8.46016 6.48 10.9202 3.76 13.3902C3.17 13.9102 2.55 14.3102 1.72 14.1202C0.0599967 13.7402 -0.550003 11.8502 0.579997 10.5502C0.999997 10.0702 1.49 9.65016 1.97 9.22016C4.69 6.75016 7.42 4.29016 10.15 1.82016C10.47 1.53016 10.8 1.24016 11.14 0.960156C12.76 -0.369844 14.37 -0.329844 15.84 1.14016C17.45 2.75016 19.03 4.40016 20.62 6.03016C20.9 6.31016 21.11 6.66016 21.56 6.87016C22.77 6.02016 23.85 4.95016 25.01 3.98016C25.66 3.45016 26.27 2.87016 26.94 2.36016C27.89 1.63016 29.1 1.73016 29.86 2.56016C30.68 3.46016 30.68 4.64016 29.77 5.55016Z"
+              />
+              <path
+                d="M29.44 20.3601C27.92 21.7201 26.36 23.0301 24.81 24.3501C24.21 24.8701 23.62 25.4101 22.99 25.9001C21.69 26.9101 21.01 26.8701 19.87 25.7001C18.25 24.0401 16.66 22.3601 15.05 20.6901C14.89 20.5201 14.72 20.3401 14.55 20.1801C13.76 19.4501 13.16 19.4201 12.35 20.1301C10.56 21.7201 8.77999 23.3301 6.99999 24.9401C5.84999 25.9801 4.70999 27.0501 3.52999 28.0701C2.47999 28.9801 1.28999 28.8701 0.479993 27.8701C-0.190007 27.0301 -0.0900067 25.6601 0.759993 24.8301C1.58999 24.0101 2.44999 23.2401 3.30999 22.4601C5.85999 20.1601 8.41999 17.8701 10.98 15.5701C12.68 14.0501 14.43 14.1101 16.05 15.7701C17.61 17.3701 19.15 18.9901 20.7 20.6001C20.95 20.8601 21.16 21.1601 21.64 21.3501C23.11 20.0801 24.57 18.8301 26.02 17.5801C26.2 17.4301 26.37 17.2601 26.56 17.1101C27.87 16.0201 28.95 16.0301 29.91 17.1301C30.81 18.1601 30.67 19.2701 29.44 20.3601Z"
+              />
+              <path
+                d="M29.58 13.02C28.24 14.22 26.86 15.37 25.49 16.54C24.64 17.27 23.8 18 22.93 18.71C21.85 19.59 20.96 19.55 19.98 18.55C18.23 16.79 16.52 14.99 14.78 13.23C13.65 12.08 13.27 12.05 12.08 13.12C9.57999 15.36 7.09999 17.63 4.60999 19.88C4.18999 20.26 3.77999 20.64 3.32999 20.96C2.41999 21.6 1.41999 21.55 0.679995 20.87C-0.0100053 20.23 -0.190005 18.95 0.339995 18.1C0.539995 17.77 0.829995 17.47 1.11999 17.21C4.38999 14.26 7.68999 11.36 10.92 8.36999C12.5 6.89999 14.56 6.90999 16.09 8.56999C17.82 10.45 19.63 12.26 21.52 14.21C23.31 12.67 25.01 11.22 26.7 9.75999C27.34 9.20999 28.04 8.88999 28.9 9.19999C30.63 9.80999 31 11.77 29.58 13.02Z"
+              />
+              <path
+                d="M111.85 13.6003C111.49 11.0803 110.2 9.18025 107.79 8.24025C105.37 7.31025 103.02 7.48025 100.87 9.08025C100.62 9.27025 100.49 9.61025 100 9.62025V3.26025H96.28C96.07 6.21025 96.16 20.9903 96.38 21.9103H99.93C100.17 21.3703 99.88 20.7803 100.19 20.2303C100.44 20.4303 100.62 20.5903 100.8 20.7303C103.92 23.2103 108.61 22.4603 110.78 19.1303C111.89 17.4303 112.12 15.5503 111.85 13.6003ZM104.05 19.0703C101.72 19.0803 100.05 17.3503 100.05 14.9403C100.05 12.5303 101.76 10.7603 104.03 10.7703C106.38 10.7803 108.05 12.5103 108.05 14.9103C108.04 17.3103 106.36 19.0703 104.05 19.0703Z"
+              />
+              <path
+                d="M48.36 20.4703C47.87 20.8803 47.35 21.2603 46.74 21.4803C44.02 22.4803 41.33 22.4003 38.75 21.0303C37.18 20.1903 36.29 18.8503 36.21 16.9503H40.12C40.12 16.9503 40.25 17.0303 40.27 17.0903C40.98 19.1003 43.34 19.9103 45.13 18.7503C46.29 18.0003 46.39 16.5103 45.34 15.5903C44.88 15.1903 44.32 14.9703 43.75 14.8003C42.68 14.4703 41.6 14.1803 40.54 13.8403C39.93 13.6403 39.33 13.4303 38.76 13.1503C35.24 11.4503 35.77 7.1203 38 5.4803C39.17 4.6303 40.47 4.2303 41.88 4.0803C43.59 3.9003 45.25 4.0503 46.8 4.7903C48.54 5.6003 49.62 6.9303 49.75 8.9903H45.66C45.47 8.2203 45.06 7.5703 44.26 7.2403C43.46 6.9203 42.64 6.8403 41.8 7.0603C40.99 7.2703 40.45 7.7003 40.29 8.5503C40.11 9.4603 40.47 10.1103 41.22 10.5803C41.83 10.9603 42.53 11.1703 43.21 11.3903C44.2 11.7003 45.2 11.9803 46.18 12.3003C46.6 12.4403 47 12.6103 47.4 12.8003C51 14.4803 50.48 18.7203 48.36 20.4703Z"
+              />
+              <path
+                d="M136.62 7.99998C135.36 7.65998 134.08 7.61998 132.82 7.80998C128.8 8.38998 126.39 11.4 126.46 14.97C126.47 18.38 128.5 21.03 131.78 21.89C133.32 22.3 134.86 22.29 136.4 21.93C139.76 21.15 142.02 18.36 142.06 14.98C142.09 11.6 139.98 8.90998 136.62 7.99998ZM134.13 19.08C131.79 19.09 130.33 17.51 130.32 14.97C130.31 12.44 131.88 10.73 134.21 10.75C136.52 10.76 138.13 12.49 138.14 14.97C138.14 17.4 136.51 19.08 134.13 19.08Z"
+              />
+              <path
+                d="M93.13 7.98005V21.9301H89.55C89.23 21.4901 89.6 20.9401 89.19 20.4901C88.06 21.4301 86.78 22.0001 85.3 22.1201C82.3 22.3501 79.85 20.8201 79.07 18.1501C78.92 17.6601 78.83 17.1301 78.83 16.6201C78.8 13.7801 78.82 10.9501 78.82 8.03005H82.59V10.6701C82.59 12.3901 82.53 14.1101 82.59 15.8301C82.72 19.0501 85.43 19.5401 87.44 18.8601C88.47 18.5201 89.06 17.7301 89.26 16.6701C89.37 16.1201 89.4 15.5601 89.4 15.0001C89.39 13.0801 89.39 11.1601 89.4 9.24005C89.4 8.85005 89.31 8.44005 89.53 7.99005C90.69 7.90005 91.87 7.94005 93.12 7.99005L93.13 7.98005Z"
+              />
+              <path
+                d="M62.34 17.2604H66.17C66.13 19.7904 63.15 22.0304 59.65 22.1904C55.46 22.3804 52.18 19.7504 51.82 15.8904C51.42 11.6804 53.84 8.38038 57.73 7.81038C62.04 7.17038 65.52 9.08038 66.29 12.6004H62.33C61.52 10.9704 60.14 10.4804 58.44 10.7704C57.49 10.9304 56.72 11.4604 56.28 12.3304C55.43 14.0404 55.41 15.7804 56.27 17.5104C57.38 19.7304 61.19 19.6304 62.08 17.6804C62.15 17.5404 62.24 17.4204 62.34 17.2604Z"
+              />
+              <path
+                d="M76.8 11.2903C76.35 11.5303 75.9 11.4003 75.48 11.4303C73.26 11.5503 72.26 12.5003 72.21 14.7103C72.17 17.0603 72.2 19.4203 72.2 21.9203H68.44V8.01027H72.09C72.32 8.60027 72.05 9.17027 72.29 9.71027C74.52 7.98027 74.88 7.82027 76.75 7.78027C76.9 8.94027 76.8 10.1103 76.8 11.2903Z"
+              />
+              <path d="M124.45 7.99023H120.76V21.8802H124.45V7.99023Z" />
+              <path
+                d="M118.18 20.0701C118.17 21.2801 117.24 22.1201 115.89 22.1301C114.52 22.1301 113.48 21.1901 113.52 20.0001C113.56 18.8601 114.58 18.0101 115.91 18.0201C117.27 18.0201 118.19 18.8501 118.18 20.0701Z"
+              />
+              <path
+                d="M124.96 4.24008C124.91 5.41008 123.94 6.20008 122.57 6.19008C121.22 6.18008 120.27 5.32008 120.28 4.13008C120.28 2.98008 121.31 2.08008 122.62 2.08008C123.93 2.08008 125.01 3.02008 124.96 4.24008Z"
+              />
+            </svg>
+
+            <div class="mt-5">
+              <h4 class="font-semibold mb-4">Join Our Waitlist</h4>
+              <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">
+                Join our waitlist to stay up to date on features and releases.
+              </p>
+              <form class="flex mt-7 flex-col sm:flex-row gap-2 w-full">
+                <div
+                  class="bg-white dark:bg-[#0D0D0D] flex rounded-full w-full px-3 py-3 items-center gap-x-3 max-w-md"
+                >
+                  <div
+                    class="rounded-full w-10 h-10 bg-[#E8E8E9] flex items-center justify-center"
+                  >
+                    <svg
+                      width="24"
+                      height="25"
+                      viewBox="0 0 24 25"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M17 20.6899H7C4 20.6899 2 19.1899 2 15.6899V8.68994C2 5.18994 4 3.68994 7 3.68994H17C20 3.68994 22 5.18994 22 8.68994V15.6899C22 19.1899 20 20.6899 17 20.6899Z"
+                        stroke="#292D32"
+                        stroke-width="1.5"
+                        stroke-miterlimit="10"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M17 9.18994L13.87 11.6899C12.84 12.5099 11.15 12.5099 10.12 11.6899L7 9.18994"
+                        stroke="#292D32"
+                        stroke-width="1.5"
+                        stroke-miterlimit="10"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </div>
+                  <input
+                    type="email"
+                    placeholder="Enter your email"
+                    class="py-2 basis-[50%] h-full w-full focus:outline-none text-black focus-visible:outline-none bg-white dark:bg-[#0D0D0D] dark:text-white"
+                  />
+                  <button
+                    class="bg-[#FAD645] hover:bg-yellow-500 text-black font-medium text-sm py-2 px-4 rounded-full hidden md:block transition duration-100 waitlist"
+                  >
+                    Join Our Waitlist
+                  </button>
+                </div>
+                <button
+                  class="bg-[#FAD645] hover:bg-yellow-500 text-black font-medium text-sm w-[200px] mt-2 py-4 px-4 rounded-full md:hidden block transition duration-100 waitlist"
+                >
+                  Join Our Waitlist
+                </button>
+              </form>
+              <p class="text-sm text-gray-600 dark:text-gray-400 mt-7">
+                By subscribing, you agree to our
+                <a href="#" class="underline text-black dark:text-white"
+                  >Privacy Policy</a
+                >
+              </p>
+            </div>
+          </div>
+
+          <div class="basis-[45%] order-1 md:order-2 mb-7 md:mb-0">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div>
+                <h4 class="font-semibold mb-4 text-lg">Quick Links</h4>
+                <ul class="space-y-4">
+                  <li>
+                    <a
+                      href="#"
+                      class="text-gray-600 dark:[#595959] hover:text-gray-900 dark:hover:text-white"
+                      >Home</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      class="text-gray-600 dark:[#595959] hover:text-gray-900 dark:hover:text-white"
+                      >About</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      class="text-gray-600 dark:[#595959] hover:text-gray-900 dark:hover:text-white"
+                      >Blog</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      class="text-gray-600 dark:[#595959] hover:text-gray-900 dark:hover:text-white"
+                      >Contact</a
+                    >
+                  </li>
+                </ul>
+              </div>
+
+              <div>
+                <h4 class="font-semibold mb-4 text-lg">Products</h4>
+                <ul class="space-y-4">
+                  <li>
+                    <a
+                      href="#"
+                      class="text-gray-600 dark:[#595959] hover:text-gray-900 dark:hover:text-white"
+                      >API Docs</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      class="text-gray-600 dark:[#595959] hover:text-gray-900 dark:hover:text-white"
+                      >Features</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="mt-12 pt-8 border-t border-[#17171714] dark:[border-#FFFFFF14]"
+        >
+          <div class="flex flex-col md:flex-row justify-between items-center">
+            <div class="mt-4 md:mt-0">
+              <p class="text-sm text-gray-600 dark:text-gray-400">
+                Copyright © 2025 Scrub.io. All Rights Reserved
+              </p>
+            </div>
+            <div class="mt-4 md:mt-0 flex space-x-4">
+              <a
+                href="#"
+                class="rounded-full bg-white dark:bg-[#0D0D0D] p-1 flex items-center justify-center h-12 w-12"
+              >
+                <svg
+                  width="24"
+                  height="25"
+                  viewBox="0 0 24 25"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="fill-[#171717] dark:fill-[#FFFFFF]"
+                >
+                  <path
+                    d="M13.1846 6.84439C13.1846 7.07327 13.1846 7.81927 13.1846 8.87909H16.8285L16.4334 12.1274H13.1846C13.1846 17.1368 13.1846 23.8497 13.1846 23.8497H8.87235C8.87235 23.8497 8.87235 17.2257 8.87235 12.1274H6.62537V8.87909H8.87235C8.87235 7.59091 8.87235 6.67492 8.87235 6.41988C8.87235 5.20473 8.7808 4.62816 9.29713 3.68653C9.81372 2.74494 11.2708 1.50035 13.7911 1.53032C16.3119 1.56137 17.3745 1.80388 17.3745 1.80388L16.8285 5.26575C16.8285 5.26575 15.2188 4.84071 14.4287 4.99218C13.6396 5.14371 13.1846 5.62977 13.1846 6.84439Z"
+                  />
+                </svg>
+              </a>
+              <a
+                href="#"
+                class="rounded-full bg-white dark:bg-[#0D0D0D] p-1 flex items-center justify-center h-12 w-12"
+              >
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 20 20"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="fill-[#171717] dark:fill-[#FFFFFF]"
+                >
+                  <path
+                    d="M0.0481035 0.328613L7.76982 10.6554L0 19.0519H1.74918L8.55233 11.7011L14.0486 19.0519H20L11.8442 8.14416L19.0767 0.328613H17.3275L11.0629 7.09858L6.00071 0.328613H0.0492635H0.0481035ZM2.61966 1.61715H5.35312L17.4261 17.7634H14.6926L2.61966 1.61715Z"
+                  />
+                </svg>
+              </a>
+              <a
+                href="#"
+                class="rounded-full bg-white dark:bg-[#0D0D0D] p-1 flex items-center justify-center h-12 w-12"
+              >
+                <svg
+                  width="20"
+                  height="21"
+                  viewBox="0 0 20 21"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="fill-[#171717] dark:fill-[#FFFFFF]"
+                >
+                  <path
+                    d="M14.19 0.689941H5.81C2.17 0.689941 0 2.85994 0 6.49994V14.8699C0 18.5199 2.17 20.6899 5.81 20.6899H14.18C17.82 20.6899 19.99 18.5199 19.99 14.8799V6.49994C20 2.85994 17.83 0.689941 14.19 0.689941ZM10 14.5699C7.86 14.5699 6.12 12.8299 6.12 10.6899C6.12 8.54994 7.86 6.80994 10 6.80994C12.14 6.80994 13.88 8.54994 13.88 10.6899C13.88 12.8299 12.14 14.5699 10 14.5699ZM15.92 5.56994C15.87 5.68994 15.8 5.79994 15.71 5.89994C15.61 5.98994 15.5 6.05994 15.38 6.10994C15.26 6.15994 15.13 6.18994 15 6.18994C14.73 6.18994 14.48 6.08994 14.29 5.89994C14.2 5.79994 14.13 5.68994 14.08 5.56994C14.03 5.44994 14 5.31994 14 5.18994C14 5.05994 14.03 4.92994 14.08 4.80994C14.13 4.67994 14.2 4.57994 14.29 4.47994C14.52 4.24994 14.87 4.13994 15.19 4.20994C15.26 4.21994 15.32 4.23994 15.38 4.26994C15.44 4.28994 15.5 4.31994 15.56 4.35994C15.61 4.38994 15.66 4.43994 15.71 4.47994C15.8 4.57994 15.87 4.67994 15.92 4.80994C15.97 4.92994 16 5.05994 16 5.18994C16 5.31994 15.97 5.44994 15.92 5.56994Z"
+                  />
+                </svg>
+              </a>
+              <a
+                href="#"
+                class="rounded-full bg-white dark:bg-[#0D0D0D] p-1 flex items-center justify-center h-12 w-12"
+              >
+                <svg
+                  width="24"
+                  height="18"
+                  viewBox="0 0 24 18"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="fill-[#171717] dark:fill-[#FFFFFF]"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M9.58613 11.7934V5.0592C11.9768 6.18411 13.8283 7.2708 16.0181 8.4424C14.212 9.44405 11.9768 10.5679 9.58613 11.7934ZM22.9092 1.70998C22.4968 1.16667 21.794 0.743746 21.0457 0.60373C18.8463 0.18607 5.12518 0.184882 2.92698 0.60373C2.32693 0.716218 1.7926 0.988118 1.3336 1.41057C-0.600435 3.20565 0.00559941 12.8321 0.471777 14.3914C0.667809 15.0664 0.921228 15.5532 1.24038 15.8727C1.65157 16.2951 2.21456 16.586 2.86123 16.7164C4.67214 17.091 14.0016 17.3004 21.0074 16.7727C21.6529 16.6602 22.2243 16.3599 22.6749 15.9195C24.4631 14.1316 24.3412 3.9646 22.9092 1.70998Z"
+                  />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Waitlist Modal -->
+    <div
+      id="waitlist-modal"
+      class="fixed inset-0 flex items-center justify-center bg-black z-[999] bg-opacity-10 hidden"
+    >
+      <div
+        class="flex rounded-xl p-3 w-full md:max-w-[60%] bg-[#E9E9E9] dark:bg-[#232323] justify-between"
+      >
+        <div
+          class="flex w-full rounded-l-lg rounded-r-lg md:rounded-r-none bg-white dark:bg-[#0D0D0D] p-6 md:basis-[60%]"
+        >
+          <div
+            class="form-cont flex flex-col justify-center items-center md:items-start"
+          >
+            <svg
+              width="143"
+              height="29"
+              viewBox="0 0 143 29"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              class="fill-[#080602] dark:fill-[#FFFFFF] transition-fill duration-100 mb-5"
+            >
+              <path
+                d="M29.77 5.55016C29.13 6.20016 28.41 6.78016 27.71 7.38016C26.17 8.71016 24.63 10.0502 23.08 11.3702C21.84 12.4202 21.01 12.3702 19.86 11.1902C18.18 9.48016 16.51 7.76016 14.83 6.05016C13.64 4.83016 13.23 4.83016 11.94 5.99016C9.21 8.46016 6.48 10.9202 3.76 13.3902C3.17 13.9102 2.55 14.3102 1.72 14.1202C0.0599967 13.7402 -0.550003 11.8502 0.579997 10.5502C0.999997 10.0702 1.49 9.65016 1.97 9.22016C4.69 6.75016 7.42 4.29016 10.15 1.82016C10.47 1.53016 10.8 1.24016 11.14 0.960156C12.76 -0.369844 14.37 -0.329844 15.84 1.14016C17.45 2.75016 19.03 4.40016 20.62 6.03016C20.9 6.31016 21.11 6.66016 21.56 6.87016C22.77 6.02016 23.85 4.95016 25.01 3.98016C25.66 3.45016 26.27 2.87016 26.94 2.36016C27.89 1.63016 29.1 1.73016 29.86 2.56016C30.68 3.46016 30.68 4.64016 29.77 5.55016Z"
+              />
+              <path
+                d="M29.44 20.3601C27.92 21.7201 26.36 23.0301 24.81 24.3501C24.21 24.8701 23.62 25.4101 22.99 25.9001C21.69 26.9101 21.01 26.8701 19.87 25.7001C18.25 24.0401 16.66 22.3601 15.05 20.6901C14.89 20.5201 14.72 20.3401 14.55 20.1801C13.76 19.4501 13.16 19.4201 12.35 20.1301C10.56 21.7201 8.77999 23.3301 6.99999 24.9401C5.84999 25.9801 4.70999 27.0501 3.52999 28.0701C2.47999 28.9801 1.28999 28.8701 0.479993 27.8701C-0.190007 27.0301 -0.0900067 25.6601 0.759993 24.8301C1.58999 24.0101 2.44999 23.2401 3.30999 22.4601C5.85999 20.1601 8.41999 17.8701 10.98 15.5701C12.68 14.0501 14.43 14.1101 16.05 15.7701C17.61 17.3701 19.15 18.9901 20.7 20.6001C20.95 20.8601 21.16 21.1601 21.64 21.3501C23.11 20.0801 24.57 18.8301 26.02 17.5801C26.2 17.4301 26.37 17.2601 26.56 17.1101C27.87 16.0201 28.95 16.0301 29.91 17.1301C30.81 18.1601 30.67 19.2701 29.44 20.3601Z"
+              />
+              <path
+                d="M29.58 13.02C28.24 14.22 26.86 15.37 25.49 16.54C24.64 17.27 23.8 18 22.93 18.71C21.85 19.59 20.96 19.55 19.98 18.55C18.23 16.79 16.52 14.99 14.78 13.23C13.65 12.08 13.27 12.05 12.08 13.12C9.57999 15.36 7.09999 17.63 4.60999 19.88C4.18999 20.26 3.77999 20.64 3.32999 20.96C2.41999 21.6 1.41999 21.55 0.679995 20.87C-0.0100053 20.23 -0.190005 18.95 0.339995 18.1C0.539995 17.77 0.829995 17.47 1.11999 17.21C4.38999 14.26 7.68999 11.36 10.92 8.36999C12.5 6.89999 14.56 6.90999 16.09 8.56999C17.82 10.45 19.63 12.26 21.52 14.21C23.31 12.67 25.01 11.22 26.7 9.75999C27.34 9.20999 28.04 8.88999 28.9 9.19999C30.63 9.80999 31 11.77 29.58 13.02Z"
+              />
+              <path
+                d="M111.85 13.6003C111.49 11.0803 110.2 9.18025 107.79 8.24025C105.37 7.31025 103.02 7.48025 100.87 9.08025C100.62 9.27025 100.49 9.61025 100 9.62025V3.26025H96.28C96.07 6.21025 96.16 20.9903 96.38 21.9103H99.93C100.17 21.3703 99.88 20.7803 100.19 20.2303C100.44 20.4303 100.62 20.5903 100.8 20.7303C103.92 23.2103 108.61 22.4603 110.78 19.1303C111.89 17.4303 112.12 15.5503 111.85 13.6003ZM104.05 19.0703C101.72 19.0803 100.05 17.3503 100.05 14.9403C100.05 12.5303 101.76 10.7603 104.03 10.7703C106.38 10.7803 108.05 12.5103 108.05 14.9103C108.04 17.3103 106.36 19.0703 104.05 19.0703Z"
+              />
+              <path
+                d="M48.36 20.4703C47.87 20.8803 47.35 21.2603 46.74 21.4803C44.02 22.4803 41.33 22.4003 38.75 21.0303C37.18 20.1903 36.29 18.8503 36.21 16.9503H40.12C40.12 16.9503 40.25 17.0303 40.27 17.0903C40.98 19.1003 43.34 19.9103 45.13 18.7503C46.29 18.0003 46.39 16.5103 45.34 15.5903C44.88 15.1903 44.32 14.9703 43.75 14.8003C42.68 14.4703 41.6 14.1803 40.54 13.8403C39.93 13.6403 39.33 13.4303 38.76 13.1503C35.24 11.4503 35.77 7.1203 38 5.4803C39.17 4.6303 40.47 4.2303 41.88 4.0803C43.59 3.9003 45.25 4.0503 46.8 4.7903C48.54 5.6003 49.62 6.9303 49.75 8.9903H45.66C45.47 8.2203 45.06 7.5703 44.26 7.2403C43.46 6.9203 42.64 6.8403 41.8 7.0603C40.99 7.2703 40.45 7.7003 40.29 8.5503C40.11 9.4603 40.47 10.1103 41.22 10.5803C41.83 10.9603 42.53 11.1703 43.21 11.3903C44.2 11.7003 45.2 11.9803 46.18 12.3003C46.6 12.4403 47 12.6103 47.4 12.8003C51 14.4803 50.48 18.7203 48.36 20.4703Z"
+              />
+              <path
+                d="M136.62 7.99998C135.36 7.65998 134.08 7.61998 132.82 7.80998C128.8 8.38998 126.39 11.4 126.46 14.97C126.47 18.38 128.5 21.03 131.78 21.89C133.32 22.3 134.86 22.29 136.4 21.93C139.76 21.15 142.02 18.36 142.06 14.98C142.09 11.6 139.98 8.90998 136.62 7.99998ZM134.13 19.08C131.79 19.09 130.33 17.51 130.32 14.97C130.31 12.44 131.88 10.73 134.21 10.75C136.52 10.76 138.13 12.49 138.14 14.97C138.14 17.4 136.51 19.08 134.13 19.08Z"
+              />
+              <path
+                d="M93.13 7.98005V21.9301H89.55C89.23 21.4901 89.6 20.9401 89.19 20.4901C88.06 21.4301 86.78 22.0001 85.3 22.1201C82.3 22.3501 79.85 20.8201 79.07 18.1501C78.92 17.6601 78.83 17.1301 78.83 16.6201C78.8 13.7801 78.82 10.9501 78.82 8.03005H82.59V10.6701C82.59 12.3901 82.53 14.1101 82.59 15.8301C82.72 19.0501 85.43 19.5401 87.44 18.8601C88.47 18.5201 89.06 17.7301 89.26 16.6701C89.37 16.1201 89.4 15.5601 89.4 15.0001C89.39 13.0801 89.39 11.1601 89.4 9.24005C89.4 8.85005 89.31 8.44005 89.53 7.99005C90.69 7.90005 91.87 7.94005 93.12 7.99005L93.13 7.98005Z"
+              />
+              <path
+                d="M62.34 17.2604H66.17C66.13 19.7904 63.15 22.0304 59.65 22.1904C55.46 22.3804 52.18 19.7504 51.82 15.8904C51.42 11.6804 53.84 8.38038 57.73 7.81038C62.04 7.17038 65.52 9.08038 66.29 12.6004H62.33C61.52 10.9704 60.14 10.4804 58.44 10.7704C57.49 10.9304 56.72 11.4604 56.28 12.3304C55.43 14.0404 55.41 15.7804 56.27 17.5104C57.38 19.7304 61.19 19.6304 62.08 17.6804C62.15 17.5404 62.24 17.4204 62.34 17.2604Z"
+              />
+              <path
+                d="M76.8 11.2903C76.35 11.5303 75.9 11.4003 75.48 11.4303C73.26 11.5503 72.26 12.5003 72.21 14.7103C72.17 17.0603 72.2 19.4203 72.2 21.9203H68.44V8.01027H72.09C72.32 8.60027 72.05 9.17027 72.29 9.71027C74.52 7.98027 74.88 7.82027 76.75 7.78027C76.9 8.94027 76.8 10.1103 76.8 11.2903Z"
+              />
+              <path d="M124.45 7.99023H120.76V21.8802H124.45V7.99023Z" />
+              <path
+                d="M118.18 20.0701C118.17 21.2801 117.24 22.1201 115.89 22.1301C114.52 22.1301 113.48 21.1901 113.52 20.0001C113.56 18.8601 114.58 18.0101 115.91 18.0201C117.27 18.0201 118.19 18.8501 118.18 20.0701Z"
+              />
+              <path
+                d="M124.96 4.24008C124.91 5.41008 123.94 6.20008 122.57 6.19008C121.22 6.18008 120.27 5.32008 120.28 4.13008C120.28 2.98008 121.31 2.08008 122.62 2.08008C123.93 2.08008 125.01 3.02008 124.96 4.24008Z"
+              />
+            </svg>
+            <h4 id="modal-title" class="font-semibold mb-3">
+              Join Our Waitlist
+            </h4>
+            <p
+              class="text-sm text-gray-600 text-center dark:text-gray-400 mb-4"
+            >
+              Join our waitlist to stay up to date on features and releases.
+            </p>
+            <form id="waitlist-form">
+              <div class="half flex gap-x-3 flex-wrap md:flex-nowrap">
+                <div class="input_group relative w-full mb-4">
+                  <input
+                    type="text"
+                    name="firstName"
+                    placeholder="First Name"
+                    required
+                    class="pl-14 pr-2 py-4 mb-2 w-full bg-[#F9F9FB] rounded-full dark:bg-[#121212] text-black dark:text-white"
+                  />
+                  <div
+                    class="absolute left-2 top-[9px] flex items-center justify-center bg-[#E8E8E9] dark:bg-[#222224] w-10 h-10 rounded-full"
+                  >
+                    <svg
+                      width="24"
+                      height="25"
+                      viewBox="0 0 24 25"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="stroke-[#292D32] dark:stroke-[#CDD1D6]"
+                    >
+                      <path
+                        d="M12 12.345C14.7614 12.345 17 10.1064 17 7.345C17 4.58358 14.7614 2.345 12 2.345C9.23858 2.345 7 4.58358 7 7.345C7 10.1064 9.23858 12.345 12 12.345Z"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M20.59 22.345C20.59 18.475 16.74 15.345 12 15.345C7.26003 15.345 3.41003 18.475 3.41003 22.345"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </div>
+                </div>
+                <div class="input_group relative w-full mb-4">
+                  <input
+                    type="text"
+                    name="lastName"
+                    placeholder="Last Name"
+                    required
+                    class="pl-14 pr-2 py-4 mb-2 w-full bg-[#F9F9FB] rounded-full dark:bg-[#121212] text-black dark:text-white"
+                  />
+                  <div
+                    class="absolute left-2 top-[9px] flex items-center justify-center bg-[#E8E8E9] dark:bg-[#222224] w-10 h-10 rounded-full"
+                  >
+                    <svg
+                      width="24"
+                      height="25"
+                      viewBox="0 0 24 25"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="stroke-[#292D32] dark:stroke-[#CDD1D6]"
+                    >
+                      <path
+                        d="M12 12.345C14.7614 12.345 17 10.1064 17 7.345C17 4.58358 14.7614 2.345 12 2.345C9.23858 2.345 7 4.58358 7 7.345C7 10.1064 9.23858 12.345 12 12.345Z"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M20.59 22.345C20.59 18.475 16.74 15.345 12 15.345C7.26003 15.345 3.41003 18.475 3.41003 22.345"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+              <div class="input_group relative w-full mb-4">
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Enter your email"
+                  required
+                  required
+                  class="pl-14 pr-2 py-4 mb-2 w-full bg-[#F9F9FB] rounded-full dark:bg-[#121212] text-black dark:text-white"
+                />
+                <div
+                  class="absolute left-2 top-[9px] flex items-center justify-center bg-[#E8E8E9] dark:bg-[#222224] w-10 h-10 rounded-full"
+                >
+                  <svg
+                    width="24"
+                    height="25"
+                    viewBox="0 0 24 25"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="stroke-[#292D32] dark:stroke-[#CDD1D6]"
+                  >
+                    <path
+                      d="M17 21.345H7C4 21.345 2 19.845 2 16.345V9.345C2 5.845 4 4.345 7 4.345H17C20 4.345 22 5.845 22 9.345V16.345C22 19.845 20 21.345 17 21.345Z"
+                      stroke-width="1.5"
+                      stroke-miterlimit="10"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                    <path
+                      d="M17 9.845L13.87 12.345C12.84 13.165 11.15 13.165 10.12 12.345L7 9.845"
+                      stroke-width="1.5"
+                      stroke-miterlimit="10"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </div>
+              </div>
+              <div class="flex gap-x-5">
+                <button
+                  type="button"
+                  id="close-modal"
+                  class="bg-[#E9E9E9] dark:bg-[#232323] py-3 w-[170px] rounded-full"
+                >
+                  Go Back
+                </button>
+                <button
+                  type="submit"
+                  id="submit-button"
+                  class="bg-[#F9D02C] py-3 w-[170px] text-center flex justify-center hover:bg-yellow-500 rounded-full"
+                >
+                  <span class="block"> Join Our Waitlist </span>
+                  <svg
+                    class="w-5 h-5 ml-2 hidden animate-spin"
+                    viewBox="0 0 24 24"
+                    id="spinner"
+                  >
+                    <circle
+                      class="opacity-25"
+                      cx="12"
+                      cy="12"
+                      r="10"
+                      stroke="currentColor"
+                      stroke-width="4"
+                    ></circle>
+                    <path
+                      class="opacity-75"
+                      fill="currentColor"
+                      d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                    ></path>
+                  </svg>
+                </button>
+              </div>
+            </form>
+            <p class="text-sm text-gray-600 dark:text-gray-400 mt-7">
+              By subscribing, you agree to our
+              <a href="#" class="underline text-black dark:text-white"
+                >Privacy Policy</a
+              >
+            </p>
+          </div>
+
+          <div
+            id="success-message"
+            class="hidden flex flex-col justify-center items-center w-full text-center"
+          >
+            <div class="mb-4">
+              <img src="./images/chrck.svg" alt="" />
+            </div>
+            <h2 class="text-xl font-normal mb-4">
+              Thank you for <span class="font-bold"> joining! </span>
+            </h2>
+            <button
+              id="close-success-modal"
+              class="bg-[#E9E9E9] dark:bg-[#232323] p-2 w-[170px] rounded-full"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+        <div
+          class="hidden content-auto md:flex w-full h-full items-end justify-end rounded-lg pt-14 md:basis-[35%]"
+        >
+          <img src="./images/modaldash.svg" alt="" class="self-end" />
+        </div>
+      </div>
+    </div>
+
+    <script src="./script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,159 @@
+@import 'tailwindcss';
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@utility content-auto {
+  content-visibility: auto;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Custom styles for Scrub.io */
+
+/* Base styles */
+:root {
+  --primary-color: #f7d046;
+  --primary-hover: #f5c518;
+  --text-color: #1a202c;
+  --text-color-light: #4a5568;
+  --bg-color: #f9fafb;
+  --bg-color-dark: #111827;
+  --card-bg: #ffffff;
+  --card-bg-dark: #1f2937;
+  --border-color: #e2e8f0;
+  --border-color-dark: #374151;
+}
+
+/* Dark mode styles */
+.dark {
+  --text-color: #f9fafb;
+  --text-color-light: #d1d5db;
+  --bg-color: #111827;
+  --card-bg: #1f2937;
+  --border-color: #374151;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.5s ease-in-out;
+}
+button {
+  cursor: pointer;
+}
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-color);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e0;
+  border-radius: 4px;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #4a5568;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a0aec0;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: #718096;
+}
+
+/* Smooth transitions for theme changes */
+body,
+a,
+button,
+input,
+div,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  transition: background-color 0.1s ease, color 0.1s ease,
+    border-color 0.1s ease, box-shadow 0.1s ease;
+}
+
+/* FAQ accordion animation */
+.faq-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.faq-content.active {
+  max-height: 500px;
+}
+
+.faq-icon {
+  transition: transform 0.3s ease;
+}
+
+.faq-icon.active {
+  transform: rotate(180deg);
+}
+
+/* Custom button styles */
+.btn-primary {
+  background-color: var(--primary-color);
+  color: var(--text-color);
+  font-weight: 500;
+  padding: 0.75rem 1.5rem;
+  border-radius: 9999px;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+* {
+  font-family: 'DM Sans', sans-serif;
+}
+
+.squig {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: squigs 2s linear forwards;
+}
+
+@keyframes squigs {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
