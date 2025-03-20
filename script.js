@@ -52,16 +52,19 @@ function setupFaqAccordion() {
     toggle.addEventListener('click', function () {
       const targetId = this.getAttribute('data-target')
       const content = document.getElementById(targetId)
+      console.log(toggle, targetId, content)
       const icon = this.querySelector('.faq-icon')
 
       // Toggle active class
       content.classList.toggle('hidden')
+      content.style.maxHeight = content.scrollHeight + 'px'
       icon.classList.toggle('rotate-180')
 
       // Close other FAQs
       document.querySelectorAll('.faq-content').forEach((item) => {
         if (item.id !== targetId) {
           item.classList.add('hidden')
+          item.style.maxHeight = '0'
         }
       })
 

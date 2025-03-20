@@ -241,8 +241,17 @@
   .top-\[32px\] {
     top: 32px;
   }
+  .top-\[60px\] {
+    top: 60px;
+  }
   .-right-\[15px\] {
     right: calc(15px * -1);
+  }
+  .-right-\[20px\] {
+    right: calc(20px * -1);
+  }
+  .-right-\[80px\] {
+    right: calc(80px * -1);
   }
   .right-0 {
     right: calc(var(--spacing) * 0);
@@ -250,14 +259,26 @@
   .right-\[-7px\] {
     right: -7px;
   }
+  .right-\[30px\] {
+    right: 30px;
+  }
+  .right-\[80px\] {
+    right: 80px;
+  }
   .bottom-0 {
     bottom: calc(var(--spacing) * 0);
   }
   .bottom-\[10px\] {
     bottom: 10px;
   }
+  .bottom-\[20px\] {
+    bottom: 20px;
+  }
   .bottom-\[30px\] {
     bottom: 30px;
+  }
+  .bottom-\[70px\] {
+    bottom: 70px;
   }
   .bottom-\[200px\] {
     bottom: 200px;
@@ -273,6 +294,12 @@
   }
   .left-\[100px\] {
     left: 100px;
+  }
+  .left-\[150px\] {
+    left: 150px;
+  }
+  .z-1 {
+    z-index: 1;
   }
   .z-\[4\] {
     z-index: 4;
@@ -412,12 +439,6 @@
   .h-20 {
     height: calc(var(--spacing) * 20);
   }
-  .h-\[380px\] {
-    height: 380px;
-  }
-  .h-\[476px\] {
-    height: 476px;
-  }
   .h-full {
     height: 100%;
   }
@@ -436,14 +457,14 @@
   .w-20 {
     width: calc(var(--spacing) * 20);
   }
-  .w-\[70px\] {
-    width: 70px;
-  }
   .w-\[120px\] {
     width: 120px;
   }
   .w-\[140px\] {
     width: 140px;
+  }
+  .w-\[150\%\] {
+    width: 150%;
   }
   .w-\[150px\] {
     width: 150px;
@@ -758,6 +779,9 @@
   .py-30 {
     padding-block: calc(var(--spacing) * 30);
   }
+  .py-\[70px\] {
+    padding-block: 70px;
+  }
   .pt-8 {
     padding-top: calc(var(--spacing) * 8);
   }
@@ -838,6 +862,9 @@
   }
   .text-\[16px\] {
     font-size: 16px;
+  }
+  .text-\[17px\] {
+    font-size: 17px;
   }
   .leading-\[19px\] {
     --tw-leading: 19px;
@@ -930,13 +957,6 @@
   }
   .content-auto {
     content-visibility: auto;
-  }
-  .hover\:bg-gray-100 {
-    &:hover {
-      @media (hover: hover) {
-        background-color: var(--color-gray-100);
-      }
-    }
   }
   .hover\:bg-gray-200 {
     &:hover {
@@ -1119,11 +1139,6 @@
   .md\:w-\[218px\] {
     @media (width >= 48rem) {
       width: 218px;
-    }
-  }
-  .md\:w-\[237px\] {
-    @media (width >= 48rem) {
-      width: 237px;
     }
   }
   .md\:w-\[247px\] {
