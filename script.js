@@ -1,4 +1,5 @@
 // Scrub.io JavaScript functionality
+const { animate } = Motion
 
 // Wait for DOM to be fully loaded
 document.addEventListener('DOMContentLoaded', function () {
@@ -13,6 +14,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Initialize modal functionality
   setupWaitlistModal()
+  setupAboutTabToggle()
 })
 
 // Theme toggle functionality
@@ -168,4 +170,58 @@ function setupWaitlistModal() {
         alert('There was an error submitting your request. Please try again.')
       })
   })
+}
+function setupAboutTabToggle() {
+  const tabs = document.querySelectorAll('.tabs')
+  const allTabContent = document.querySelectorAll('.tab-content > div')
+
+  tabs.forEach((tab, ind) => {
+    tab.addEventListener('click', function () {
+      const tabContent = document.getElementById(`tab-${ind + 1}`)
+      tabContent.classList.remove('hidden')
+      if (!tab.classList.contains('active')) {
+        translatePhysical(ind)
+      }
+
+      allTabContent.forEach((item) => {
+        if (item.id !== tabContent.id) {
+          item.classList.add('hidden')
+        }
+      })
+    })
+  })
+}
+
+function translatePhysical(index) {
+  const appendedDiv = `<div class="active_cursor bg-black dark:bg-white top-0 left-0 w-full rounded-full absolute h-full translate-x-0"></div>`
+  const markers = document.querySelectorAll('.tabs')
+  const currentCursor = document.querySelector('.active_cursor')
+  const selectedMarker = markers[index]
+  const { left: currentLeft } = currentCursor.getBoundingClientRect()
+  const { left: newLeft } = selectedMarker.getBoundingClientRect()
+
+  markers.forEach((item) => {
+    let newInnerHtml
+    const a = item.innerHTML.split('</div>')
+
+    if (a.length === 2) {
+      newInnerHtml = a[1]
+    } else {
+      newInnerHtml = a[0]
+    }
+    item.id !== selectedMarker.id ? (item.innerHTML = newInnerHtml) : null
+    item.id !== selectedMarker.id
+      ? item.classList.remove('active')
+      : item.classList.add('active')
+  })
+
+  const oldInnerHtml = selectedMarker.innerHTML
+  selectedMarker.innerHTML = appendedDiv + oldInnerHtml
+  animate(
+    '.active_cursor',
+    {
+      x: [currentLeft - newLeft, 0],
+    },
+    { duration: 0.5 }
+  )
 }

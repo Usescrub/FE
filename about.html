@@ -16,6 +16,7 @@
       href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap"
       rel="stylesheet"
     />
+    <script src="https://cdn.jsdelivr.net/npm/motion@11.11.13/dist/motion.js"></script>
   </head>
   <body
     class="bg-gray-50 text-gray-900 transition-all duration-100 dark:bg-[#131313] dark:text-white"
@@ -182,22 +183,69 @@
           </h2>
 
           <div>
-            <p class="text-[#383838] text-[17px]">
-              At Scrub.io, we believe in a world where
-              <span class="font-bold">
-                financial transactions are secure, seamless,
-              </span>
-              and <span class="font-bold"> accessible to everyone</span>.
-            </p>
+            <div
+              class="rounded-full w-full max-w-md flex gap-x-2 p-2 bg-[#E9E9E9] dark:bg-[#232323] h-[64px] mt-7"
+            >
+              <div
+                id="vision"
+                class="tabs w-full relative text-white w-full flex items-center justify-center cursor-pointer active"
+              >
+                <div
+                  class="active_cursor bg-black dark:bg-white top-0 left-0 w-full rounded-full absolute h-full translate-x-0"
+                ></div>
+                <p class="text-white mix-blend-difference z-10">Our Vision</p>
+              </div>
+              <div
+                id="mission"
+                class="tabs w-ful relative w-full flex items-center justify-center cursor-pointer"
+              >
+                <p class="text-white mix-blend-difference z-10">Our Mission</p>
+              </div>
+            </div>
 
-            <p class="text-[#383838] text-[17px] mt-4">
-              Our vision is to drive
-              <span class="font-bold">financial inclusion for all,</span>
-              empowering businesses and individuals with the
-              <span class="font-bold">
-                confidence to transact without fear of fraud.
-              </span>
-            </p>
+            <div class="tab-content mt-10 max-w-5xl">
+              <div id="tab-1">
+                <p class="text-[#383838] dark:text-white text-[17px]">
+                  At Scrub.io, we believe in a world where
+                  <span class="font-bold">
+                    financial transactions are secure, seamless,
+                  </span>
+                  and <span class="font-bold"> accessible to everyone</span>.
+                </p>
+
+                <p class="text-[#383838] dark:text-white text-[17px] mt-4">
+                  Our vision is to drive
+                  <span class="font-bold">financial inclusion for all,</span>
+                  empowering businesses and individuals with the
+                  <span class="font-bold">
+                    confidence to transact without fear of fraud.
+                  </span>
+                </p>
+              </div>
+
+              <div id="tab-2" class="hidden">
+                <p class="font-bold">
+                  Eliminating fraud, one transaction at a time.
+                </p>
+                <p class="text-[#383838] dark:text-white text-[17px] mt-4">
+                  From identity theft to payment fraud, cybercriminals are
+                  evolving—
+                  <span class="font-bold"> but so are we. </span> Scrub.io
+                  leverages
+                  <span class="font-bold">
+                    AI, machine learning, and real-time risk scoring
+                  </span>
+                  to detect and prevent fraud before it happens.
+                </p>
+                <p class="text-[#383838] dark:text-white text-[17px] mt-4">
+                  We work tirelessly to build a
+                  <span class="font-bold"> fraud-free digital economy, </span>
+                  giving businesses the tools to
+                  <span class="font-bold"> stay ahead of threats </span> and
+                  protect their customers.
+                </p>
+              </div>
+            </div>
           </div>
 
           <button
@@ -734,8 +782,8 @@
             </svg>
 
             <div class="mt-5">
-              <h4 class="font-semibold mb-4">Join Our Waitlist</h4>
-              <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">
+              <h4 class="font-semibold mb-2">Join Our Waitlist</h4>
+              <p class="text-gray-600 dark:text-gray-400 mb-7">
                 Join our waitlist to stay up to date on features and releases.
               </p>
               <div class="flex mt-7 flex-col sm:flex-row gap-2 w-full">
@@ -793,6 +841,19 @@
                   >Privacy Policy</a
                 >
               </p>
+              <div class="address text-[#595959] mt-5 text-sm">
+                <div class="us_addr">
+                  <p class="dark:text-white font-bold">United States</p>
+                  <p>
+                    4022, 1007 N Orange St. 4th Floor , Wilmington, DE, New
+                    Castle, US, 19801
+                  </p>
+                </div>
+                <div class="ng_addr mt-4">
+                  <p class="dark:text-white font-bold">Nigeria</p>
+                  <p>28a Folarin Street, Magodo Phase 1</p>
+                </div>
+              </div>
             </div>
           </div>
 
