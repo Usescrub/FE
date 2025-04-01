@@ -9,6 +9,9 @@
 * {
   box-sizing: border-box;
 }
+body {
+  margin: 0;
+}
 
 /* Custom styles for Scrub.io */
 
@@ -155,5 +158,22 @@ h6 {
 @keyframes squigs {
   to {
     stroke-dashoffset: 0;
+  }
+}
+
+.bounce {
+  animation: bounce 1s infinite;
+}
+
+@keyframes bounce {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-5px);
   }
 }
