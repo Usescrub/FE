@@ -1,6 +1,3 @@
-// register plugin
-// gsap.registerPlugin(ScrollTrigger);
-
 // Scrub.io JavaScript functionality
 const { animate } = Motion
 
@@ -14,9 +11,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Animation on scroll
   // setupScrollAnimations()
-
-  // gsap 
-  // gsapScrollTrigger()
 
   // Initialize modal functionality
   setupWaitlistModal()
@@ -230,9 +224,4 @@ function translatePhysical(index) {
     },
     { duration: 0.5 }
   )
-}
-
-// gsap animation function
-function gsapScrollTrigger() {
-  
 }
