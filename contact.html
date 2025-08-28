@@ -319,7 +319,7 @@
                   >support, a demo, or a custom fraud prevention solution, </span
                 >our team is ready to assist.
               </p>
-              <form class="mt-9">
+              <form class="mt-9" id="contact-form" novalidate>
                 <div class="half flex gap-x-3 flex-wrap md:flex-nowrap">
                   <div class="input_group relative w-full mb-4">
                     <input
@@ -354,6 +354,7 @@
                         />
                       </svg>
                     </div>
+                    <small class="text-red-500 ml-3 absolute left-0 bottom-[-12px]" id="firstName-error"></small>
                   </div>
                   <div class="input_group relative w-full mb-4">
                     <input
@@ -388,6 +389,7 @@
                         />
                       </svg>
                     </div>
+                    <small class="text-red-500 ml-3 absolute left-0 bottom-[-12px]" id="lastName-error"></small>
                   </div>
                 </div>
                 <div class="input_group relative w-full mb-4">
@@ -395,7 +397,6 @@
                     type="email"
                     name="email"
                     placeholder="Enter your work email"
-                    required
                     required
                     class="pl-[4rem] pr-2 py-4 mb-2 w-full dark:bg-[#181818] bg-[#F3F3F5] rounded-full dark:bg-[#121212] h-[63px] text-[#595959] dark:text-white"
                   />
@@ -426,18 +427,25 @@
                       />
                     </svg>
                   </div>
+                  <small class="text-red-500 ml-3 absolute left-0 bottom-[-12px]" id="email-error"></small>
                 </div>
                 <div class="input_group relative w-full mb-4">
                   <select
                     type="text"
-                    name="message"
-                    placeholder="Enter your message"
+                    name="inquiry"
                     required
-                    required
-                    class="pl-[4rem] pr-2 py-4 mb-2 w-full dark:bg-[#181818] bg-[#F3F3F5] rounded-full dark:bg-[#121212] h-[63px] text-[#595959] dark:text-white"
+                    class="pl-[4rem] pr-2 py-4 mb-2 w-full dark:bg-[#181818] bg-[#F3F3F5] rounded-full dark:bg-[#121212] h-[63px] text-[#595959] dark:text-white appearance-none"
                   >
                     <option value="">Select your inquiry type</option>
+                    <option value="technical">Technical</option>
+                    <option value="sales">Sales</option>
+                    <option value="others">Others</option>
                   </select>
+                  <div class="absolute top-6 right-2.5 pointer-events-none">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" class="stroke-[#595959] dark:stroke-white">
+                      <path d="M6 9l6 6 6-6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                  </div>
                   <div
                     class="absolute left-2 top-[8px] flex items-center justify-center bg-[#E8E8E9] dark:bg-[#222224] w-12 h-12 rounded-full"
                   >
@@ -466,6 +474,7 @@
                       />
                     </svg>
                   </div>
+                  <small class="text-red-500 ml-3 absolute left-0 bottom-[-12px]" id="inquiry-error"></small>
                 </div>
                 <div class="input_group relative w-full mb-4">
                   <input
@@ -514,6 +523,7 @@
                       />
                     </svg>
                   </div>
+                  <small class="text-red-500 ml-3 absolute left-0 bottom-[-12px]" id="message-error"></small>
                 </div>
                 <button
                   type="submit"
