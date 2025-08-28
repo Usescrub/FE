@@ -157,3 +157,75 @@ function translatePhysical(index) {
     { duration: 0.5 }
   )
 }
+
+// contact form sales logic
+const contactForm = document.querySelector('#contact-form')
+
+// add an event listener to it
+contactForm.addEventListener('submit', (e) => {
+  e.preventDefault()
+  
+  const contactFormData = new FormData(contactForm)
+  const data = {}
+  for (const [key, value] of contactFormData.entries()) {
+    data[key] = value.toLowerCase()
+  }
+
+  const validateData = handleValidation(data)
+
+  if(validateData) {
+    console.log(data)
+    window.location.href = 'https://calendly.com/pajayi-usescrub/30min'
+  }
+
+})
+
+function handleValidation(formValues) {
+  let formValid = true
+  const getAllErrorElements = document.querySelectorAll('#contact-form small')
+  const errorMessages = []
+
+  if(formValues.firstName === '') {
+    errorMessages[0] = 'First name is required'
+  } else {
+    errorMessages[0] = ''
+  }
+
+  if(formValues.lastName === '') {
+    errorMessages[1] = 'Last name is required'
+  } else {
+    errorMessages[1] = ''
+  }
+
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(formValues.email)) {
+    errorMessages[2] = 'Invalid email address'
+  } else {
+    errorMessages[2] = ''
+  }
+
+  if(formValues.inquiry === '') {
+    errorMessages[3] = 'This field is required'
+  } else {
+    errorMessages[3] = ''
+  }
+
+  if(formValues.message === '') {
+    errorMessages[4] = 'This field is required'
+  } else {
+    errorMessages[4] = ''
+  }
+
+  getAllErrorElements.forEach((element, index) => {
+    element.textContent = errorMessages[index]
+  })
+
+  for (const errorMessage of errorMessages) {
+    if (errorMessage !== '') {
+      formValid = false
+      break
+    }
+  }
+
+  return formValid;
+}
