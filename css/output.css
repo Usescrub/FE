@@ -74,6 +74,8 @@
     --default-mono-font-variation-settings: var(
       --font-mono--font-variation-settings
     );
+    --font-aspergit: 'Aspergit', serif;
+    --font-raleway: 'Raleway', serif;
   }
 }
 @layer base {
@@ -260,6 +262,9 @@
   .bottom-0 {
     bottom: calc(var(--spacing) * 0);
   }
+  .bottom-\[0\%\] {
+    bottom: 0%;
+  }
   .bottom-\[10px\] {
     bottom: 10px;
   }
@@ -292,6 +297,9 @@
   }
   .z-10 {
     z-index: 10;
+  }
+  .z-\[2\] {
+    z-index: 2;
   }
   .z-\[4\] {
     z-index: 4;
@@ -328,6 +336,9 @@
   }
   .mx-auto {
     margin-inline: auto;
+  }
+  .my-4 {
+    margin-block: calc(var(--spacing) * 4);
   }
   .-mt-10 {
     margin-top: calc(var(--spacing) * -10);
@@ -461,6 +472,9 @@
   .h-full {
     height: 100%;
   }
+  .h-screen {
+    height: 100vh;
+  }
   .w-5 {
     width: calc(var(--spacing) * 5);
   }
@@ -479,8 +493,14 @@
   .w-20 {
     width: calc(var(--spacing) * 20);
   }
+  .w-\[10vw\] {
+    width: 10vw;
+  }
   .w-\[25\%\] {
     width: 25%;
+  }
+  .w-\[100\%\] {
+    width: 100%;
   }
   .w-\[100px\] {
     width: 100px;
@@ -506,6 +526,9 @@
   .w-full {
     width: 100%;
   }
+  .w-screen {
+    width: 100vw;
+  }
   .max-w-2xl {
     max-width: var(--container-2xl);
   }
@@ -517,6 +540,9 @@
   }
   .max-w-50 {
     max-width: calc(var(--spacing) * 50);
+  }
+  .max-w-\[420px\] {
+    max-width: 420px;
   }
   .max-w-\[930px\] {
     max-width: 930px;
@@ -570,6 +596,9 @@
   }
   .cursor-pointer {
     cursor: pointer;
+  }
+  .resize {
+    resize: both;
   }
   .grid-cols-1 {
     grid-template-columns: repeat(1, minmax(0, 1fr));
@@ -658,6 +687,12 @@
   }
   .self-end {
     align-self: flex-end;
+  }
+  .overflow-clip {
+    overflow: clip;
+  }
+  .overflow-hidden {
+    overflow: hidden;
   }
   .rounded-2xl {
     border-radius: var(--radius-2xl);
@@ -886,6 +921,12 @@
   .text-right {
     text-align: right;
   }
+  .font-aspergit {
+    font-family: var(--font-aspergit);
+  }
+  .font-raleway {
+    font-family: var(--font-raleway);
+  }
   .text-2xl {
     font-size: var(--text-2xl);
     line-height: var(--tw-leading, var(--text-2xl--line-height));
@@ -917,6 +958,12 @@
   .text-xs {
     font-size: var(--text-xs);
     line-height: var(--tw-leading, var(--text-xs--line-height));
+  }
+  .text-\[2\.3rem\] {
+    font-size: 2.3rem;
+  }
+  .text-\[2em\] {
+    font-size: 2em;
   }
   .text-\[12px\] {
     font-size: 12px;
@@ -961,6 +1008,10 @@
     --tw-font-weight: var(--font-weight-semibold);
     font-weight: var(--font-weight-semibold);
   }
+  .tracking-\[\.3em\] {
+    --tw-tracking: .3em;
+    letter-spacing: .3em;
+  }
   .text-\[\#171717\] {
     color: #171717;
   }
@@ -996,6 +1047,15 @@
   }
   .opacity-75 {
     opacity: 75%;
+  }
+  .opacity-\[\.3\] {
+    opacity: .3;
+  }
+  .opacity-\[\.5\] {
+    opacity: .5;
+  }
+  .opacity-\[0\.5\] {
+    opacity: 0.5;
   }
   .mix-blend-difference {
     mix-blend-mode: difference;
@@ -1123,6 +1183,11 @@
       bottom: calc(var(--spacing) * 0);
     }
   }
+  .md\:bottom-\[-10\%\] {
+    @media (width >= 48rem) {
+      bottom: -10%;
+    }
+  }
   .md\:bottom-\[20px\] {
     @media (width >= 48rem) {
       bottom: 20px;
@@ -1231,6 +1296,11 @@
   .md\:w-58 {
     @media (width >= 48rem) {
       width: calc(var(--spacing) * 58);
+    }
+  }
+  .md\:w-\[60\%\] {
+    @media (width >= 48rem) {
+      width: 60%;
     }
   }
   .md\:w-\[80\%\] {
@@ -1408,6 +1478,22 @@
       line-height: var(--tw-leading, var(--text-sm--line-height));
     }
   }
+  .md\:text-xl {
+    @media (width >= 48rem) {
+      font-size: var(--text-xl);
+      line-height: var(--tw-leading, var(--text-xl--line-height));
+    }
+  }
+  .md\:text-\[4\.3em\] {
+    @media (width >= 48rem) {
+      font-size: 4.3em;
+    }
+  }
+  .md\:text-\[4\.5rem\] {
+    @media (width >= 48rem) {
+      font-size: 4.5rem;
+    }
+  }
   .md\:text-\[20px\] {
     @media (width >= 48rem) {
       font-size: 20px;
@@ -1423,6 +1509,12 @@
     @media (width >= 48rem) {
       --tw-leading: 68px;
       line-height: 68px;
+    }
+  }
+  .md\:tracking-\[\.5em\] {
+    @media (width >= 48rem) {
+      --tw-tracking: .5em;
+      letter-spacing: .5em;
     }
   }
   .dark\:block {
@@ -1667,9 +1759,6 @@ body, a, button, input, div, p, h1, h2, h3, h4, h5, h6 {
     padding-right: 1rem;
   }
 }
-* {
-  font-family: 'DM Sans', sans-serif;
-}
 .squig {
   stroke-dasharray: 1000;
   stroke-dashoffset: 1000;
@@ -1751,6 +1840,10 @@ body, a, button, input, div, p, h1, h2, h3, h4, h5, h6 {
   inherits: false;
 }
 @property --tw-font-weight {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-tracking {
   syntax: "*";
   inherits: false;
 }

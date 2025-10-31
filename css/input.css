@@ -6,6 +6,12 @@
   content-visibility: auto;
 }
 
+@theme {
+  --font-aspergit: 'Aspergit', serif;
+  --font-raleway: 'Raleway', serif;
+  --font-poppins: 'Poppins', serif;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -143,10 +149,6 @@ h6 {
     padding-left: 1rem;
     padding-right: 1rem;
   }
-}
-
-* {
-  font-family: 'DM Sans', sans-serif;
 }
 
 .squig {
