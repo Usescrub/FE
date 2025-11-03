@@ -1,5 +1,1 @@
-/img/*      /img/:splat 200!
-/fonts/*   /fonts/:splat 200!
-/css/*    /css/:splat 200!
-/js/*     /js/:splat 200!
-/*                /coming-soon  200!
+
