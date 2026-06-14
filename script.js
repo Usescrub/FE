@@ -15,32 +15,15 @@ document.addEventListener('DOMContentLoaded', function () {
   setupAboutTabToggle()
 })
 
-// Theme toggle functionality
 function setupThemeToggle() {
   const themeToggleBtn = document.getElementById('theme-toggle')
+  const ST = window.ScrubTheme
+  if (!themeToggleBtn || !ST) return
 
-  // Check for saved theme preference or respect OS preference
-  if (
-    localStorage.getItem('color-theme') === 'dark' ||
-    (!localStorage.getItem('color-theme') &&
-      window.matchMedia('(prefers-color-scheme: dark)').matches)
-  ) {
-    document.documentElement.classList.add('dark')
-  } else {
-    document.documentElement.classList.remove('dark')
-  }
+  ST.applyTheme(ST.getSavedTheme())
 
-  // Toggle theme on button click
   themeToggleBtn.addEventListener('click', function () {
-    // Toggle dark class on html element
-    document.documentElement.classList.toggle('dark')
-
-    // Update localStorage
-    if (document.documentElement.classList.contains('dark')) {
-      localStorage.setItem('color-theme', 'dark')
-    } else {
-      localStorage.setItem('color-theme', 'light')
-    }
+    ST.applyTheme(document.documentElement.classList.contains('dark') ? 'light' : 'dark')
   })
 }
 
