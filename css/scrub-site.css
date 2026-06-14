@@ -428,7 +428,14 @@ body.scrub-site p {
   display: block;
   height: 29px;
   width: auto;
+}
+svg.brand-logo {
   fill: var(--text);
+}
+img.brand-logo {
+  display: block;
+  width: 143px;
+  height: 29px;
 }
 .nav .links {
   display: flex;
@@ -1215,12 +1222,6 @@ body.scrub-site .hero .sub {
 /* placeholder media */
 .ph {
   position: relative;
-  background: repeating-linear-gradient(
-    135deg,
-    var(--panel-2) 0 12px,
-    var(--panel) 12px 24px
-  );
-  border: 1px solid var(--line);
   display: grid;
   place-items: center;
 }

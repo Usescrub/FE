@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function () {
 function setupThemeToggle() {
   const themeToggleBtn = document.getElementById('theme-toggle')
   const ST = window.ScrubTheme
-  if (!themeToggleBtn || !ST) return
+  if (!themeToggleBtn || !ST || themeToggleBtn.classList.contains('theme-toggle')) return
 
   ST.applyTheme(ST.getSavedTheme())
 
